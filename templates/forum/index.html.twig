@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forum{% endblock %}
+
+{% block body %}
+<style>
+    .main-wrapper { margin: 1em auto; max-width: 1000px; width: 95%; font: 18px/1.5 sans-serif; text-align: center}
+    .messages-wrapper { margin: 1em auto; max-width: 1000px; width: 95%; font: 18px/1.5 sans-serif}
+    a.new-link {
+        background:    #e69138;
+        border-radius: 11px;
+        padding:       20px 45px;
+        color:         #ffffff;
+        display:       inline-block;
+        font:          normal bold 26px/1 "Open Sans", sans-serif;
+        text-align:    center;
+        text-decoration: none;
+    }
+</style>
+
+<div class="main-wrapper">
+    <h1>Hey welcome ! You can post messages on this wall ! </h1>
+
+    <a class="new-link" href="/new/post"> Post a new mesage </a>
+    
+</div>
+<div class="messages-wrapper">
+    {% for post in posts %}
+    {% if not post.archive %}
+        <p> Titre : {{ post.title }} <p>
+        <p> Auteur : {{ post.author }} <p>
+        <p> Contenu : {{ post.content }} <p>
+        <br>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
