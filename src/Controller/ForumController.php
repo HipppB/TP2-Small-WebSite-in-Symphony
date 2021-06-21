@@ -24,7 +24,6 @@ class ForumController extends AbstractController
          */
         $posts = $PostsRepository->findAll();
 
-
         return $this->render('forum/index.html.twig', [
             "posts" => $posts
         ]);

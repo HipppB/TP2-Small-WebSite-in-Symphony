@@ -1,3 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+#api_forum_id:
+#  path: api/forum/{id}
+#  controller: App\Controller\ForumApiController::index

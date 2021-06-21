@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PostsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PostsRepository::class)
@@ -19,6 +20,7 @@ class Posts
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
      */
     private $title;
 
@@ -35,7 +37,7 @@ class Posts
     /**
      * @ORM\Column(type="boolean")
      */
-    private $Archive;
+    private $Archive = false;
 
     public function getId(): ?int
     {
@@ -89,5 +91,16 @@ class Posts
         $this->Archive = $Archive;
 
         return $this;
+    }
+
+    public function getAllDataInArray()
+    {
+        $data = [
+            "Title" => $this->getTitle(),
+            "Content" => $this->getContent(),
+            "Author" => $this->getAuthor(),
+            "Archived" => $this->getArchive(),
+        ];
+        return $data;
     }
 }

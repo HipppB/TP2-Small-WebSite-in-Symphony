@@ -7,7 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PostOnForumType extends AbstractType
+class PostsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -15,8 +15,7 @@ class PostOnForumType extends AbstractType
             ->add('title')
             ->add('content')
             ->add('author')
-            //The user must not be able to change this one at creation 
-            //->add('Archive')
+            ->add('Archive')
         ;
     }
 

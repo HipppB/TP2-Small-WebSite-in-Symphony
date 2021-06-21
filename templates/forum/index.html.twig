@@ -27,9 +27,13 @@
 <div class="messages-wrapper">
     {% for post in posts %}
     {% if not post.archive %}
-        <p> Titre : {{ post.title }} <p>
-        <p> Auteur : {{ post.author }} <p>
+        <p> Titre : 
+        {{ post.title }} <p>
+        <p> Auteur :
+        {% if not post.author %} Annonymous {% endif %}
+        {{ post.author }} <p>
         <p> Contenu : {{ post.content }} <p>
+        <a href="/api/archive/{{post.id}}"> Archive {{ post.title }} </a>
         <br>
     {% endif %}
     {% endfor %}
