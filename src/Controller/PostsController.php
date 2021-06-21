@@ -33,7 +33,6 @@ class PostsController extends AbstractController
         $post = new Posts();
         $form = $this->createForm(PostsType::class, $post);
         $form->handleRequest($request);
-        dump($form->isSubmitted());
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($post);
